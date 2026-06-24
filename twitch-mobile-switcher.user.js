@@ -3,8 +3,8 @@
 // @namespace    https://github.com/twitch-switcher
 // @version      1.4.1
 // @description  Top-anchored switcher buttons. V to instant-switch, H to hide/show.
-// @updateURL    https://github.com/alphaxleonidas/twitch-vertical-for-pc/raw/refs/heads/main/twitch-mobile-switcher.user.js
-// @downloadURL  https://github.com/alphaxleonidas/twitch-vertical-for-pc/raw/refs/heads/main/twitch-mobile-switcher.user.js
+// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
+// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
 // @author       Leonidas
 // @match        *://twitch.tv/*
 // @match        *://www.twitch.tv/*
