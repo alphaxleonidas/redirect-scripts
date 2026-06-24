@@ -3,6 +3,8 @@
 // @namespace    TikTok to Urlebird Redirector
 // @version      1.0
 // @description  Auto redirect TikTok links to Urlebird, a privacy-focused TikTok viewer
+// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/tiktok-to-urlebird.user.js
+// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/tiktok-to-urlebird.user.js
 // @author       Leonidas
 // @license      GPLv3
 // @icon         https://urlebird.com/favicon.ico
