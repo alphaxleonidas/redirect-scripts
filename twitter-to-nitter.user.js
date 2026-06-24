@@ -3,6 +3,8 @@
 // @namespace    VHdpdHRlci9YIHRvIE5pdHRlciBSZWRpcmVjdG9y
 // @version      1.3
 // @description  Auto redirect Twitter/X links to Nitter, a privacy-focused viewer
+// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitter-to-nitter.user.js
+// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitter-to-nitter.user.js
 // @author       Leonidas
 // @license      GPLv3
 // @icon         https://nitter.net/favicon.ico
