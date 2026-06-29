@@ -30,5 +30,5 @@ List of my redirect scripts
 
 ## [Twitter-to-Nitter](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitter-to-nitter.user.js)
 
-
+## [Reddit-Redirect-Toggle](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/reddit-redirect-toggle.user.js)
 
