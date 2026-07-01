@@ -1,9 +1,9 @@
 # redirect-scripts
 List of my redirect scripts. Most of them redirect the webpages. 
 
-Reddit-Redirect-Toggle only redirects when you click on the button. 
+- Reddit-Redirect-Toggle only redirects when you click on the button. 
 
-Twitch Vertical for PC allows you to view m.twitch.tv with one button press. You can hide the toggle by pressing "H".
+- Twitch Vertical for PC allows you to view m.twitch.tv with one button press i.e. "V". You can hide the toggle by pressing "H".
 
 
 **Requirements:** Violentmonkey or TamperMonkey or any other script manager
