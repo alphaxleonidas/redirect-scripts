@@ -3,8 +3,8 @@
 // @namespace    SW5zdGFncmFtIHRvIEltZ2lubiBSZWRpcmVjdG9y
 // @version      1.3
 // @description  Auto redirect Instagram links to Imginn, a privacy-focused viewer
-// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/insta-to-imginn.user.js
-// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/insta-to-imginn.user.js
+// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/main/insta-to-imginn.user.js
+// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/main/insta-to-imginn.user.js
 // @author       Leonidas
 // @license      GPLv3
 // @icon         https://i25.servimg.com/u/f25/11/94/21/24/imginn10.png
