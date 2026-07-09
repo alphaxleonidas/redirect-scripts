@@ -1,10 +1,8 @@
 // ==UserScript==
 // @name         Twitch Mobile/Desktop Switcher
 // @namespace    https://github.com/twitch-switcher
-// @version      1.4.1
-// @description  Top-anchored switcher buttons. V to instant-switch, H to hide/show.
-// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
-// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
+// @version      1.6.0
+// @description  Top-anchored switcher buttons. V = switch, H = hide/show, T = theatre, C = chat.
 // @author       Leonidas
 // @match        *://twitch.tv/*
 // @match        *://www.twitch.tv/*
@@ -12,6 +10,8 @@
 // @icon         https://www.twitch.tv/favicon.ico
 // @grant        none
 // @run-at       document-end
+// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
+// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
 // ==/UserScript==
 
 (function () {
@@ -33,10 +33,38 @@
   function toDesktop() { window.location.href = 'https://www.twitch.tv' + currentPath(); }
   const switchFn = isMobile ? toDesktop : toMobile;
 
+  /* ─── Theatre mode toggle (desktop only) ────────────────────
+     Tries the official data-a-target first, then falls back to
+     aria-label substring match to handle locale differences
+     ("Theatre" vs "Theater").                                  */
+  function toggleTheatre() {
+    const btn =
+      document.querySelector('[data-a-target="theatre-mode-button"]') ||
+      document.querySelector('button[aria-label*="heatre"]');
+    if (btn) btn.click();
+  }
+
+  /* ─── Chat toggle ─────────────────────────────────────────────
+     Clicks the collapse/expand chevron on the chat panel.
+     Tries data-a-target attrs first (most stable), then explicit
+     aria-label values for both collapsed and expanded states.   */
+  function toggleChat() {
+    const btn =
+      document.querySelector('[data-a-target="chat-collapse-chevron"]')               ||
+      document.querySelector('[data-a-target="right-column-chat-bar-collapsed-arrow"]') ||
+      document.querySelector('button[aria-label="Collapse Chat"]')                    ||
+      document.querySelector('button[aria-label="Expand Chat"]')                      ||
+      document.querySelector('button[aria-label="Hide Chat"]')                        ||
+      document.querySelector('button[aria-label="Show Chat"]');
+    if (btn) btn.click();
+  }
+
   /* ─── Keyboard shortcuts ─────────────────────────────────────
      V  →  instant switch (works even when button is hidden)
      H  →  toggle button visibility
-     Both skipped when typing in chat / any input field.       */
+     T  →  toggle theatre mode (desktop only)
+     C  →  collapse / expand chat
+     All skipped when typing in chat / any input field.        */
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     const tag    = e.target.tagName;
@@ -45,6 +73,8 @@
     if (typing) return;
     if (e.key === 'v' || e.key === 'V') switchFn();
     if (e.key === 'h' || e.key === 'H') toggle();
+    if (e.key === 't' || e.key === 'T') { if (!isMobile) toggleTheatre(); }
+    if (e.key === 'c' || e.key === 'C') toggleChat();
   });
 
   /* ─── Per-side config ────────────────────────────────────────
