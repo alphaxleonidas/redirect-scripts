@@ -10,8 +10,6 @@
 // @icon         https://www.twitch.tv/favicon.ico
 // @grant        none
 // @run-at       document-end
-// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
-// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js
 // ==/UserScript==
 
 (function () {
