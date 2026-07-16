@@ -3,8 +3,6 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Automatically redirects all medium.com pages to readmedium.com
-// @updateURL    https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/medium-to-readmedium.user.js
-// @downloadURL  https://github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/medium-to-readmedium.user.js
 // @author       Leonidas
 // @match        *://*.medium.com/*
 // @match        *://medium.com/*
