@@ -5,7 +5,8 @@ List of my redirect scripts. Most of them redirect the webpages.
 
 - Twitch Vertical for PC:
   -    allows you to view m.twitch.tv (vertical view) with one button press i.e. "V". You can hide the toggle by pressing "H".
-  -    "C" for Chat. "T" for Theatre View. Default shortcuts: Alt+R and Alt+T respectively.
+  -    "C" for Chat. "T" for Theatre View.
+  -    `Alt+R` for Chat and `Alt+T` for Theatre View are default.
 
 
 **Requirements:** Violentmonkey or TamperMonkey or any other script manager
