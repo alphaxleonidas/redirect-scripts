@@ -35,7 +35,7 @@ List of my redirect scripts. Most of them redirect the webpages.
 
 ## [Twitch-Vertical-for-PC](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitch-mobile-switcher.user.js)
 
-## [Twitter-to-Nitter](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitter-to-nitter.user.js)
+## [Twitter-to-TWstalker](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/twitter-to-testalker.user.js)
 
 ## [Reddit-Redirect-Toggle](https://www.github.com/alphaxleonidas/redirect-scripts/raw/refs/heads/main/reddit-redirect-toggle.user.js)
 
