@@ -72,7 +72,7 @@
     if (e.key === 'v' || e.key === 'V') switchFn();
     if (e.key === 'h' || e.key === 'H') toggle();
     if (e.key === 't' || e.key === 'T') { if (!isMobile) toggleTheatre(); }
-    if (e.key === 'c' || e.key === 'C') toggleChat();
+    if (e.key === 'l' || e.key === 'C') toggleChat();
   });
 
   /* ─── Per-side config ────────────────────────────────────────
