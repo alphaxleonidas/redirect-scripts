@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Twitch Mobile/Desktop Switcher
 // @namespace    https://github.com/twitch-switcher
-// @version      1.6.0
-// @description  Top-anchored switcher buttons. V = switch, H = hide/show, T = theatre, C = chat.
+// @version      1.6.1
+// @description  Top-anchored switcher buttons. V = switch, H = hide/show, T = theatre, L = chat.
 // @author       Leonidas
 // @match        *://twitch.tv/*
 // @match        *://www.twitch.tv/*
@@ -61,7 +61,7 @@
      V  →  instant switch (works even when button is hidden)
      H  →  toggle button visibility
      T  →  toggle theatre mode (desktop only)
-     C  →  collapse / expand chat
+     L  →  collapse / expand chat
      All skipped when typing in chat / any input field.        */
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -72,7 +72,7 @@
     if (e.key === 'v' || e.key === 'V') switchFn();
     if (e.key === 'h' || e.key === 'H') toggle();
     if (e.key === 't' || e.key === 'T') { if (!isMobile) toggleTheatre(); }
-    if (e.key === 'l' || e.key === 'C') toggleChat();
+    if (e.key === 'l' || e.key === 'L') toggleChat();
   });
 
   /* ─── Per-side config ────────────────────────────────────────
@@ -85,7 +85,6 @@
        settings / notifications / whispers (~56px tall)       */
   const LABEL   = isMobile ? 'Go Horizontal'  : 'Go Vertical';
   const ID      = isMobile ? 'tms-h'          : 'tms-v';
-  const STORE   = isMobile ? 'tms_hidden_h'   : 'tms_hidden_v';
   const TOP     = isMobile ? '62px'           : '160px';
   const FONT    = isMobile ? '13px'           : '11px';
   const PAD     = isMobile ? '8px 13px'       : '6px 10px';
@@ -105,8 +104,6 @@
       stroke="currentColor" stroke-width="2.5"
       stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
   }
-
-  const isHidden = localStorage.getItem(STORE) === '1';
 
   /* ─── Styles ─────────────────────────────────────────────────── */
   const style = document.createElement('style');
@@ -176,37 +173,13 @@
     }
     #${ID}-close:hover  { background: #5a29a8; }
     #${ID}-close:active { background: #4a2090; }
-
-    /* ── Mini restore tab (shows when pill is hidden) ── */
-    #${ID}-tab {
-      position: fixed;
-      top: ${TOP};
-      right: 0;
-      z-index: ${Z};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 24px;
-      background: ${PURPLE};
-      color: ${TEXT};
-      border: none;
-      border-radius: 5px 0 0 5px;
-      cursor: pointer;
-      box-shadow: -2px 2px 8px rgba(0,0,0,0.4);
-      transition: width 0.15s ease, background 0.14s;
-      user-select: none;
-      overflow: hidden;
-    }
-    #${ID}-tab:hover  { width: 22px; background: ${PURPLE_DARK}; }
-    #${ID}-tab.tms-gone { display: none !important; }
   `;
   document.head.appendChild(style);
 
   /* ─── Build pill ─────────────────────────────────────────────── */
   const wrap = document.createElement('div');
   wrap.id = `${ID}-wrap`;
-  if (isHidden) wrap.classList.add('tms-gone');
+  wrap.classList.add('tms-gone');   // hidden by default; press H to show
 
   const mainBtn = document.createElement('button');
   mainBtn.id    = `${ID}-main`;
@@ -218,31 +191,19 @@
 
   const closeBtn = document.createElement('button');
   closeBtn.id    = `${ID}-close`;
-  closeBtn.title = 'Hide  (press H or click the edge tab to restore)';
+  closeBtn.title = 'Hide  (press H to restore)';
   closeBtn.textContent = '×';
   closeBtn.addEventListener('click', hide);
 
   wrap.appendChild(mainBtn);
   wrap.appendChild(closeBtn);
 
-  /* ─── Build mini restore tab ─────────────────────────────────── */
-  const tab = document.createElement('button');
-  tab.id    = `${ID}-tab`;
-  tab.title = 'Show switcher  (or press H)';
-  tab.innerHTML = svg('9', ICON);
-  if (!isHidden) tab.classList.add('tms-gone');
-  tab.addEventListener('click', show);
-
   /* ─── Show / Hide / Toggle ───────────────────────────────────── */
   function hide() {
     wrap.classList.add('tms-gone');
-    tab.classList.remove('tms-gone');
-    localStorage.setItem(STORE, '1');
   }
   function show() {
     wrap.classList.remove('tms-gone');
-    tab.classList.add('tms-gone');
-    localStorage.removeItem(STORE);
   }
   function toggle() {
     wrap.classList.contains('tms-gone') ? show() : hide();
@@ -250,6 +211,5 @@
 
   /* ─── Mount ──────────────────────────────────────────────────── */
   document.body.appendChild(wrap);
-  document.body.appendChild(tab);
 
 })();
